@@ -1,0 +1,19 @@
+<% action_url = goal.persisted? ? goal_url(goal) : goals_url %>
+<% http_method = goal.persisted? ? "PATCH" : "POST"%>
+
+
+
+<form action="<%= action_url %>" method="POST">
+  <input type="hidden" name="_method" value="<%= http_method %>">
+  <%= auth_token_input %>
+  <label>Goal</label>
+  <textarea name="goal[body]" id="goal_body"><%= goal.body %></textarea>
+  <input 
+    type = "checkbox"
+    name = "goal[private]" 
+    id="goal_private"
+    <% if goal.private == 1 %>
+      checked = "true"
+    <% end %> >Private
+  <input type="submit" value="Submit" >
+</form>

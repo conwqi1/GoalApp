@@ -1,0 +1,10 @@
+<h1>Here is your goal</h1>
+
+<ul>
+  <li>body: <%= @goal.body %></li>
+  <li><%= @goal.private == 1 ? "private" : "public"%></li>
+</ul>
+
+<%= link_to "Index", goals_url %>
+<%= link_to "Edit", edit_goal_url %>
+<%= link_to "Delete", goal_url(@goal), method: :delete%>

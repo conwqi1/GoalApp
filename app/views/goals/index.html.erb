@@ -1,0 +1,11 @@
+<h1>Index of Goals</h1>
+
+<ul>
+  <% @goals.each do |goal| %>
+    <% if goal.private != 1 || goal.user_id == current_user.id %>
+      <li><%= link_to goal.body %></li>
+    <%end%>
+  <%end %>
+</ul>
+
+<%= link_to "Add new goal", new_goal_url %>
